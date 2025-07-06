@@ -1,0 +1,492 @@
+/* === Base Styles with Cyberpunk Enhancements === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    linear-gradient(90deg, 
+      rgba(0, 239, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(
+      rgba(0, 239, 255, 0.05) 1px, transparent 1px);
+  background-size: 
+    100% 100%,
+    20px 20px,
+    20px 20px;
+  color: #fff;
+  transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Container with Scanlines Effect === */
+.container {
+  width: 520px;
+  margin: 50px auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  border: 1px solid #0ef;
+  box-shadow: inset 0 0 0.5em 0 #0ef, 0 0 0.5em 0 #0ef;
+  padding: 20px;
+  transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 239, 255, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 100% 2px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* === Typography with Neon Effects === */
+.base h4 {
+  font-size: 2.4rem;
+  text-align: center;
+  font-weight: normal;
+  margin-top: 0;
+  color: #0ef;
+  padding: 20px 0;
+  text-shadow: 0 0 10px #0ef;
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+  0%, 100% { text-shadow: 0 0 5px #0ef, 0 0 10px #0ef; }
+  50% { text-shadow: 0 0 10px #0ef, 0 0 20px #0ef, 0 0 30px #0ef; }
+}
+
+/* === Date Input Groups - Side by Side Layout === */
+.date-input-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.block {
+  display: inline-block;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+}
+
+.title {
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: normal;
+  color: #0ef;
+  margin-bottom: 8px;
+  text-shadow: 0 0 5px #0ef;
+}
+
+/* === Input Fields with Holographic Style === */
+input[type="text"] {
+  width: 100px;
+  padding: 12px;
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(17, 17, 17, 0.9) 100%
+  );
+  border: 2px solid #333;
+  border-image: linear-gradient(45deg, #0ef, #08f) 1;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  animation: input-focus 0.8s ease-out forwards;
+  border-image: linear-gradient(45deg, #0ef, #f0f) 1;
+}
+
+@keyframes input-focus {
+  0% { box-shadow: 0 0 0 0 rgba(0, 239, 255, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(0, 239, 255, 0.3); }
+  100% { box-shadow: 0 0 0 2px rgba(0, 239, 255, 0.1); }
+}
+
+/* === Cyberpunk Buttons with Advanced Effects === */
+input[type="button"] {
+  width: 150px;
+  margin: 20px auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: #0ef;
+  color: #111;
+  border: none;
+  padding: 12px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #0ef;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+input[type="button"]::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 239, 255, 0) 45%,
+    rgba(0, 239, 255, 0.8) 50%,
+    rgba(0, 239, 255, 0) 55%
+  );
+  transform: rotate(30deg);
+  transition: all 0.5s;
+}
+
+input[type="button"]:hover {
+  background-color: #111;
+  color: #0ef;
+  box-shadow: 0 0 20px #0ef;
+  transform: translateY(-2px);
+}
+
+input[type="button"]:hover::after {
+  left: 100%;
+}
+
+/* === Age Display with Glitch Effect === */
+#age {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #fff;
+  line-height: 1.6;
+  position: relative;
+}
+
+#age::before, #age::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: inherit;
+  clip: rect(0, 0, 0, 0);
+}
+
+#age:hover::before {
+  text-shadow: 2px 0 #0ef;
+  animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+#age:hover::after {
+  text-shadow: -2px 0 #f0f;
+  animation: glitch-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-1 {
+  0% { clip: rect(30px, 9999px, 20px, 0); }
+  25% { clip: rect(10px, 9999px, 80px, 0); }
+  50% { clip: rect(50px, 9999px, 30px, 0); }
+  75% { clip: rect(40px, 9999px, 70px, 0); }
+  100% { clip: rect(70px, 9999px, 10px, 0); }
+}
+
+@keyframes glitch-2 {
+  0% { clip: rect(60px, 9999px, 10px, 0); }
+  25% { clip: rect(30px, 9999px, 90px, 0); }
+  50% { clip: rect(10px, 9999px, 60px, 0); }
+  75% { clip: rect(80px, 9999px, 20px, 0); }
+  100% { clip: rect(20px, 9999px, 80px, 0); }
+}
+
+/* === Enhanced Theme Switcher === */
+.theme-toggle {
+  margin: 25px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.theme-toggle button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  min-width: 100px;
+  will-change: transform, box-shadow;
+}
+
+.theme-toggle button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #0ef, #08f, #0ef);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle button:hover::before {
+  opacity: 1;
+}
+
+/* Dark Theme Button */
+.theme-toggle .dark-btn {
+  background-color: #111;
+  color: #0ef;
+  border: 1px solid #0ef;
+  box-shadow: 0 0 5px #0ef;
+}
+
+.theme-toggle .dark-btn:hover {
+  box-shadow: 0 0 15px #0ef;
+  color: #fff;
+}
+
+/* Light Theme Button */
+.theme-toggle .light-btn {
+  background-color: #f4f4f4;
+  color: #333;
+  border: 1px solid #333;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.theme-toggle .light-btn:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  color: #000;
+}
+
+/* Blue Theme Button */
+.theme-toggle .blue-btn {
+  background-color: #002244;
+  color: #33ccff;
+  border: 1px solid #33ccff;
+  box-shadow: 0 0 5px #33ccff;
+}
+
+.theme-toggle .blue-btn:hover {
+  box-shadow: 0 0 15px #33ccff;
+  color: #fff;
+}
+
+/* === Theme Variations === */
+/* Light Mode */
+body.light-mode {
+  background-color: #f8f9fa;
+  color: #333;
+  background-image: none;
+}
+
+body.light-mode .container {
+  border: 1px solid #ddd;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+body.light-mode .base h4,
+body.light-mode .title {
+  color: #222;
+  text-shadow: none;
+  animation: none;
+}
+
+body.light-mode input[type="text"] {
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-image: none;
+}
+
+body.light-mode input[type="text"]:focus {
+  border-color: #555;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+body.light-mode input[type="button"] {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+body.light-mode input[type="button"]:hover {
+  background-color: #555;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+body.light-mode #age {
+  color: #222;
+}
+
+/* Blue Mode */
+body.blue-mode {
+  background-color: #001a33;
+  color: #e6f7ff;
+  background-image: none;
+}
+
+body.blue-mode .container {
+  border: 1px solid #33ccff;
+  box-shadow: inset 0 0 0.5em 0 #33ccff, 0 0 0.5em 0 #33ccff;
+}
+
+body.blue-mode .base h4,
+body.blue-mode .title {
+  color: #33ccff;
+  text-shadow: 0 0 5px #33ccff;
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+body.blue-mode input[type="text"] {
+  background: #003366;
+  color: #fff;
+  border: 1px solid #66d9ff;
+  border-image: linear-gradient(45deg, #33ccff, #3399ff) 1;
+}
+
+body.blue-mode input[type="text"]:focus {
+  border-color: #33ccff;
+  box-shadow: 0 0 10px #33ccff;
+}
+
+body.blue-mode input[type="button"] {
+  background-color: #33ccff;
+  color: #003366;
+  box-shadow: 0 0 10px #33ccff;
+}
+
+body.blue-mode input[type="button"]:hover {
+  background-color: #003366;
+  color: #33ccff;
+  box-shadow: 0 0 20px #33ccff;
+}
+
+/* === Animations === */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* === Responsive Design === */
+@media (min-width: 600px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 90%;
+    margin: 30px auto;
+  }
+  
+  .date-input-group {
+    flex-direction: column;
+    align-items: center;
+    
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  
+  .block {
+    width: 100%;
+    max-width: 140px;
+    padding: 0 10px;
+    display: flex;
+    margin: 0;
+    vertical-align: top;
+    align-items: center;
+  }
+  .title {
+    margin-top: 8px;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: normal;
+  color: #0ef;
+  margin-bottom: 12px; /* Increased from 8px for more space below title */
+  text-shadow: 0 0 5px #0ef;
+  padding: 0 5px; /* Added small padding to prevent text clipping */
+}
+  
+  input[type="text"] {
+    width: 100%;
+    margin: 0 5px;
+    padding: 12px 8px;
+  }
+  
+  .theme-toggle {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* === Reduced Motion Preference === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
