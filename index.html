@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> <meta charset="UTF-8" />
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+         <title>Age Calculator</title> 
+         <link rel="stylesheet" href="styles.css"/> 
+        </head> <body> <div class="container"> 
+            <div class="base"> 
+              <h4>Age Calculator</h4>
+            </div>
+<div class="theme-toggle"> 
+    <label for="themeSelector">Select Theme:</label> 
+    <select id="themeSelector" onchange="applyTheme(this.value)"> 
+        <option value="">Default (Dark)</option> <option value="light-mode">Light Mode</option>
+         <option value="blue-mode">Blue Mode</option> </select> </div>
+<div class="block">
+  <p class="title">Date</p>
+  <input type="text" id="day" placeholder="dd" required minlength="1" maxlength="2">
+</div>
+
+<div class="block">
+  <p class="title">Month</p>
+  <input type="text" id="month" placeholder="mm" required minlength="1" maxlength="2">
+</div>
+
+<div class="block">
+  <p class="title">Year</p>
+ <input type="text" id="year" placeholder="yyyy" required minlength="4" maxlength="4">
+</div>
+
+<div class="submit button">
+ <input type="button" value="Submit" onclick="calculateAge()">
+</div>
+<div id="age">
+</div>
+</div> 
+<script> function applyTheme(themeName) { document.body.className = '';
+  if (themeName)
+  { document.body.classList.add(themeName); 
+ } } </script>
+<script src="script.js">
+
+</script> 
+</body> 
+</html>
